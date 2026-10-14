@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CLIMA Planner</title>
+<style>
+  html, body { height: 100%; margin: 0; background: #ffffff; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; }
+  #msg { font: 16px/1.5 ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #37352f; max-width: 520px; margin: 15vh auto 0; padding: 0 24px; }
+  #msg[hidden] { display: none; }
+  code { background: #f1f1ef; padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+  <iframe id="app" title="CLIMA Planner" hidden></iframe>
+  <div id="msg" hidden>
+    <h1>Add your web app link</h1>
+    <p>Open <code>index.html</code>, find <code>APP_URL</code>, and paste your Apps Script link that ends in <code>/exec</code>.</p>
+  </div>
+
+<script>
+  // Paste your deployed Apps Script link here (it ends in /exec, not /dev).
+  var APP_URL = 'https://script.google.com/macros/s/AKfycby8zHtiJWlTII_e54nvKwLT7nuH2LEcyh7SteFgoWFOm1IOlOaENikr_yivzFrV3QNM/exec';
+
+  var frame = document.getElementById('app');
+  if (/^https:\/\/script\.google\.com\/.+\/exec/.test(APP_URL)) {
+    frame.src = APP_URL;
+    frame.hidden = false;
+  } else {
+    document.getElementById('msg').hidden = false;
+  }
+</script>
+</body>
+</html>
